@@ -1,5 +1,4 @@
-
-//Comment
+//This is the model of Item Shop system using multi-agents
 namespace ItemStoreDBNameSpace
 {
     using System;
