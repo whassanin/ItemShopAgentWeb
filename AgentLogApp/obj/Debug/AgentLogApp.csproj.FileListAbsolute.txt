@@ -1,0 +1,9 @@
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\bin\Debug\AgentLogApp.exe.config
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\bin\Debug\AgentLogApp.exe
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\bin\Debug\AgentLogApp.pdb
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\obj\Debug\AgentLogApp.csprojResolveAssemblyReference.cache
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\obj\Debug\AgentLogApp.Form1.resources
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\obj\Debug\AgentLogApp.Properties.Resources.resources
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\obj\Debug\AgentLogApp.csproj.GenerateResource.Cache
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\obj\Debug\AgentLogApp.exe
+C:\Users\waleed\documents\visual studio 2012\Projects\ItemShopAgentWeb\AgentLogApp\obj\Debug\AgentLogApp.pdb

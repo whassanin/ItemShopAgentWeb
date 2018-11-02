@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemShopAgentWeb", "ItemShopAgentWeb\ItemShopAgentWeb.csproj", "{EEF29A72-59E3-4C1B-93E2-59404150499B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentLogApp", "AgentLogApp\AgentLogApp.csproj", "{02CEC338-44E3-4BDC-BE4C-BD791097A3AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEF29A72-59E3-4C1B-93E2-59404150499B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF29A72-59E3-4C1B-93E2-59404150499B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF29A72-59E3-4C1B-93E2-59404150499B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF29A72-59E3-4C1B-93E2-59404150499B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CEC338-44E3-4BDC-BE4C-BD791097A3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CEC338-44E3-4BDC-BE4C-BD791097A3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CEC338-44E3-4BDC-BE4C-BD791097A3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CEC338-44E3-4BDC-BE4C-BD791097A3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
