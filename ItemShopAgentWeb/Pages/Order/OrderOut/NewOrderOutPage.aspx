@@ -10,16 +10,16 @@
             <asp:BoundField HeaderText="Quantity" DataField="Quantity" HeaderStyle-Width="100px">
                 <HeaderStyle Width="100px"></HeaderStyle>
             </asp:BoundField>
-            <asp:BoundField HeaderText="Price" DataField="BookPrice" />
+            <asp:BoundField HeaderText="Price" DataField="BookPrice" DataFormatString="{0:0.00}"/>
             <asp:BoundField HeaderText="Amount" DataField="Amount" Visible="false" />
-            <asp:BoundField HeaderText="Total" DataField="Total" />
+            <asp:BoundField HeaderText="Total" DataField="Total" DataFormatString="{0:0.00}"/>
             <asp:CommandField ShowDeleteButton="True" />
             <asp:ButtonField CommandName="Inc" Text="Inc." />
             <asp:ButtonField CommandName="Dec" Text="Dec." />
         </Columns>
     </asp:GridView>
     <br />
-    <asp:Label runat="server" Text="Total: " ID="totallbl"></asp:Label>
+    <asp:Label runat="server" Text="Total: " ID="totallbl" DataFormatString="{0:0.00}"></asp:Label>
     <br />
     <br />
     <asp:Button runat="server" ID="cancelOrderbtn" Text="Cancel Order" OnClick="cancelOrderbtn_Click"/>

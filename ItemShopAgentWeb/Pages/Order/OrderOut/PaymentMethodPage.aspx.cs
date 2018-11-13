@@ -206,11 +206,17 @@ namespace ItemShopAgentWeb.Pages.Order.OrderOut
                     _sb._Id = (int)_sb.Success;
                     _sb._OrderDate = DateTime.Now;
 
+                    if (PaymentMethodDDl.SelectedValue == "Cash")
+                    {
+                        _sb._CreditCardNumber = null;
+                        _sb._Holder = null;
+                    }
+
                     _sb.Execute("InsertOrderOutCapability");
                     if (_sb.Success != null)
                     {
-                       IsDone =  SaveOrderDetail(_sb._Id);
-                       _sb._OrderOutId = _sb._Id;
+                        _sb._OrderOutId = _sb._Id;
+                        IsDone = SaveOrderDetail(_sb._Id);
                     }
                 }
             }
@@ -241,6 +247,7 @@ namespace ItemShopAgentWeb.Pages.Order.OrderOut
                     _sb._BookId = int.Parse(SelectedBookOutDT.Rows[i]["Id"].ToString());
                     _sb._Price = float.Parse(SelectedBookOutDT.Rows[i]["BookPrice"].ToString());
                     _sb._Quantity = int.Parse(SelectedBookOutDT.Rows[i]["Quantity"].ToString());
+                    _sb._Total = _sb._Price * _sb._Quantity;
                     _sb._OrderOutId = orderId;
 
                     _sb.Execute("InsertOrderOut_ItemCapability");

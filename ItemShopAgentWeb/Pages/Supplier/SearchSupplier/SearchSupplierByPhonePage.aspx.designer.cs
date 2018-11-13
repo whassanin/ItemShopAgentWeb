@@ -7,54 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ItemShopAgentWeb.Pages.Order.OrderIn {
+namespace ItemShopAgentWeb.Pages.Supplier.SearchSupplier {
     
     
-    public partial class NewOrderInPage {
+    public partial class SearchSupplierByPhonePage {
         
         /// <summary>
-        /// SelectedBookInGV control.
+        /// phonetxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView SelectedBookInGV;
+        protected global::System.Web.UI.WebControls.TextBox phonetxt;
         
         /// <summary>
-        /// totallbl control.
+        /// Searchbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totallbl;
+        protected global::System.Web.UI.WebControls.Button Searchbtn;
         
         /// <summary>
-        /// cancelOrderbtn control.
+        /// fullNametxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelOrderbtn;
+        protected global::System.Web.UI.WebControls.TextBox fullNametxt;
         
         /// <summary>
-        /// continueOrderbtn control.
+        /// backbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button continueOrderbtn;
+        protected global::System.Web.UI.WebControls.Button backbtn;
         
         /// <summary>
-        /// ConfirmOrderbtn control.
+        /// ViewSupplierbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ConfirmOrderbtn;
+        protected global::System.Web.UI.WebControls.Button ViewSupplierbtn;
+        
+        /// <summary>
+        /// selectSupplierbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button selectSupplierbtn;
     }
 }

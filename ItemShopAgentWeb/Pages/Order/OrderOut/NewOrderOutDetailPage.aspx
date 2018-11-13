@@ -46,9 +46,9 @@
                             <asp:BoundField HeaderText="Quantity" DataField="Quantity" HeaderStyle-Width="100px">
                                 <HeaderStyle Width="100px"></HeaderStyle>
                             </asp:BoundField>
-                            <asp:BoundField HeaderText="Price" DataField="BookPrice" />
+                            <asp:BoundField HeaderText="Price" DataField="BookPrice" DataFormatString="{0:0.00}"/>
                             <asp:BoundField HeaderText="Amount" DataField="Amount" Visible="false" />
-                            <asp:BoundField HeaderText="Total" DataField="Total" />
+                            <asp:BoundField HeaderText="Total" DataField="Total" DataFormatString="{0:0.00}"/>
                         </Columns>
                     </asp:GridView>
                 </td>
@@ -56,7 +56,7 @@
             <tr>
                 <td colspan="2">
                     <strong>
-                        <asp:Label runat="server" Text="Total: " ID="totallbl"></asp:Label></strong>
+                        <asp:Label runat="server" Text="Total: " ID="totallbl" DataFormatString="{0:0.00}"></asp:Label></strong>
                 </td>
             </tr>
         </tbody>

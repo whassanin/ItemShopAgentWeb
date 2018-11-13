@@ -25,7 +25,7 @@
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="OrderDate" HeaderText="Date" />
-            <asp:BoundField DataField="Total" HeaderText="Total" />
+            <asp:BoundField DataField="Total" HeaderText="Total" DataFormatString="{0:0.00}" />
             <asp:BoundField DataField="Paid" HeaderText="Paid" />
             <asp:BoundField DataField="Change" HeaderText="Change" />
             <asp:ButtonField Text="View Detail" CommandName="ViewDetail"/>

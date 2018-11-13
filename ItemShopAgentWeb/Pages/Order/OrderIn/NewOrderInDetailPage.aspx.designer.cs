@@ -10,7 +10,16 @@
 namespace ItemShopAgentWeb.Pages.Order.OrderIn {
     
     
-    public partial class NewOrderInPage {
+    public partial class NewOrderInDetailPage {
+        
+        /// <summary>
+        /// supplierNamelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label supplierNamelbl;
         
         /// <summary>
         /// SelectedBookInGV control.
@@ -31,30 +40,30 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn {
         protected global::System.Web.UI.WebControls.Label totallbl;
         
         /// <summary>
-        /// cancelOrderbtn control.
+        /// CancelOrderbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelOrderbtn;
+        protected global::System.Web.UI.WebControls.Button CancelOrderbtn;
         
         /// <summary>
-        /// continueOrderbtn control.
+        /// saveOrderbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button continueOrderbtn;
+        protected global::System.Web.UI.WebControls.Button saveOrderbtn;
         
         /// <summary>
-        /// ConfirmOrderbtn control.
+        /// orderNumberlbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ConfirmOrderbtn;
+        protected global::System.Web.UI.WebControls.Label orderNumberlbl;
     }
 }

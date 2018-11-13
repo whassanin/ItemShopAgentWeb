@@ -124,7 +124,8 @@ namespace ItemShopAgentWeb.Pages.BookPages
                     else if (cmd == "AddOrderIn")
                     {
                         AddSelectedBook(currentRow, true);
-                        //Response.Redirect("~/Pages/Order/OrderIn/NewOrderInPage.aspx");
+                        Save();
+                        Response.Redirect("~/Pages/Order/OrderIn/NewOrderInPage.aspx");
                     }
                 }
             }
@@ -274,7 +275,7 @@ namespace ItemShopAgentWeb.Pages.BookPages
             }
             else if(InOut == true) 
             {
-                DataRow[] Rows = SelectedBookOutDT.Select("Id = " + int.Parse(currentRow["Id"].ToString()));
+                DataRow[] Rows = SelectedBookInDT.Select("Id = " + int.Parse(currentRow["Id"].ToString()));
 
                 if (Rows.Count() == 0)
                 {
@@ -289,8 +290,8 @@ namespace ItemShopAgentWeb.Pages.BookPages
                     newRow["CategoryId"] = currentRow["CategoryId"];
                     newRow["NumOfVisits"] = currentRow["NumOfVisits"];
                     newRow["OfferId"] = currentRow["OfferId"];
-                    newRow["Quantity"] = 1;
-                    newRow["Total"] = 1 * float.Parse(currentRow["BookPrice"].ToString());
+                    newRow["Quantity"] = 10;
+                    newRow["Total"] = 10 * float.Parse(currentRow["BookPrice"].ToString());
                     SelectedBookInDT.Rows.Add(newRow);
                 }
             }
