@@ -120,7 +120,7 @@ namespace ItemShopAgentWeb.Pages.Customer
                 _sb._Top++;
                 _sb._Flag = "R";
                 GetOrderOut();
-            }         
+            }
         }
 
         protected void lastBottombtn_Click(object sender, EventArgs e)
@@ -132,6 +132,10 @@ namespace ItemShopAgentWeb.Pages.Customer
 
         private void Initialize() 
         {
+            _sb._Top = 1;
+            _sb._PageSize = 1000;
+            _sb._Flag = "C";
+
             GetOrderOut();
 
             double vc = _sb._SelectAllOrderOutCount;
@@ -150,9 +154,6 @@ namespace ItemShopAgentWeb.Pages.Customer
 
         private void GetOrderOut() 
         {
-            _sb._Top = 1;
-            _sb._PageSize = 1000;
-            _sb._Flag = "C";
             _sb.Execute("SelectAllOrderOutCapability");
             if (_sb.Success != null)
             {
@@ -160,6 +161,11 @@ namespace ItemShopAgentWeb.Pages.Customer
                 OrderOutGV.DataSource = OrderOutDT;
                 OrderOutGV.DataBind();
             }
+        }
+
+        protected void CreateOrderbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Order/OrderIn/NewOrderInPage.aspx");
         }
     }
 }

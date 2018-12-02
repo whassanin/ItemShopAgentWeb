@@ -197,6 +197,10 @@ namespace ItemShopAgentWeb.Pages.Customer
                 OrderDetailGV.Columns[8].Visible = false;
             }
 
+            _sb._Top = 1;
+            _sb._PageSize = 1000;
+            _sb._Flag = "C";
+
             GetOrderDetail();
 
             double vc = _sb._SelectOrderOut_ItemByOrderOutIdCount;
@@ -215,9 +219,6 @@ namespace ItemShopAgentWeb.Pages.Customer
 
         private void GetOrderDetail() 
         {
-            _sb._Top = 1;
-            _sb._PageSize = 1000;
-            _sb._Flag = "C";
             _sb.Execute("SelectOrderOut_ItemByOrderOutIdCapability");
             if (_sb.Success != null)
             {

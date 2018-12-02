@@ -146,5 +146,14 @@ namespace ItemShopAgentWeb.Pages.Customer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button lastBottombtn;
+        
+        /// <summary>
+        /// CreateOrderbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateOrderbtn;
     }
 }

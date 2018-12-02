@@ -90,7 +90,33 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
 
         protected void OrderDetailGV_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            string cmd = e.CommandName;
+            if (cmd == "Delete" || cmd == "Update")
+            {
+                int i = int.Parse(e.CommandArgument.ToString());
 
+                if (cmd == "Delete")
+                {
+                    _sb._Id = int.Parse(OrderDetailDT.Rows[i]["Id"].ToString());
+
+                    _sb.Execute("DeleteOrderIn_ItemCapability");
+                    if (_sb.Success!=null)
+                    {
+                        bool isCheck = bool.Parse(_sb.Success.ToString());
+                        if (isCheck == true)
+                        {
+                            OrderDetailDT.Rows.RemoveAt(i);
+                            OrderDetailGV.DataSource = OrderDetailDT;
+                            OrderDetailGV.DataBind();
+                        }
+                    }
+
+                }
+                else if (cmd == "Update")
+                {
+                    
+                }
+            }
         }
 
         protected void OrderDetailGV_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -161,6 +187,10 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
             OrderDatalbl.Text = _sb._OrderDate.ToString();
             SupplierNamelbl.Text = _sb._SupplierName;
 
+            _sb._Top = 1;
+            _sb._PageSize = 1000;
+            _sb._Flag = "C";
+
             GetOrderDetail();
 
             double vc = _sb._SelectOrderIn_ItemByOrderInIdCount;
@@ -179,10 +209,7 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
 
         private void GetOrderDetail() 
         {
-            _sb._Top = 1;
-            _sb._PageSize = 1000;
-            _sb._Flag = "C";
-            _sb.Execute("SelectOrderOut_ItemByOrderInIdCapability");
+            _sb.Execute("SelectOrderIn_ItemByOrderInIdCapability");
             if (_sb.Success != null)
             {
                 OrderDetailDT = (DataTable)_sb.Success;
@@ -191,7 +218,6 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
                 
                 OrderDetailGV.DataSource = OrderDetailDT;
                 OrderDetailGV.DataBind();
-
             }
         }
 

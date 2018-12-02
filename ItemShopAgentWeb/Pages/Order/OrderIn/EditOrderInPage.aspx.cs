@@ -37,6 +37,11 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
             }
         }
 
+        protected void CreateOrderbtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Order/OrderIn/BookLessAmountPage.aspx");
+        }
+
         protected void firstTopbtn_Click(object sender, EventArgs e)
         {
             _sb._Top = 1;
@@ -77,14 +82,14 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
             if (cmd == "ViewDetail")
             {
                 int i = int.Parse(e.CommandArgument.ToString());
-                _sb._OrderOutId = int.Parse(OrderInDT.Rows[i]["Id"].ToString());
+                _sb._OrderInId = int.Parse(OrderInDT.Rows[i]["Id"].ToString());
                 _sb._OrderDate = DateTime.Parse(OrderInDT.Rows[i]["OrderDate"].ToString());
                 _sb._Status = OrderInDT.Rows[i]["Status"].ToString().TrimEnd();
                 _sb._SupplierId = int.Parse(OrderInDT.Rows[i]["SupplierId"].ToString());
                 _sb._SupplierName = OrderInDT.Rows[i]["SupplierName"].ToString().TrimEnd();
 
                 Session["StockBroker"] = _sb;
-                //Response.Redirect("~/Pages/Order/OrderOut/EditOrderInDetailPage.aspx");
+                Response.Redirect("~/Pages/Order/OrderIn/EditOrderInDetailPage.aspx");
             }
         }
 
@@ -124,6 +129,10 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
 
         private void Initialize()
         {
+            _sb._Top = 1;
+            _sb._PageSize = 1000;
+            _sb._Flag = "C";
+
             GetOrderIn();
 
             double vc = _sb._SelectAllOrderInCount;
@@ -142,9 +151,6 @@ namespace ItemShopAgentWeb.Pages.Order.OrderIn
 
         private void GetOrderIn()
         {
-            _sb._Top = 1;
-            _sb._PageSize = 1000;
-            _sb._Flag = "C";
             _sb.Execute("SelectAllOrderInCapability");
             if (_sb.Success != null)
             {

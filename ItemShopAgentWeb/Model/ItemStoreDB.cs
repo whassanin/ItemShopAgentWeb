@@ -25609,6 +25609,8 @@ namespace ItemStoreDBNameSpace
                         
                         private double _Total;
                         
+                        private string _Status;
+                        
                         private bool InsertOrderIn_ItemBeliefFun(ACLMessage message)
                         {
                             int ce = 0;
@@ -25705,6 +25707,21 @@ namespace ItemStoreDBNameSpace
                                 {
                                     this._Total = 0;
                                 }
+                                if ((message.ContentArgumentsIn["Status"] != null))
+                                {
+                                    if ((message.ContentArgumentsIn["Status"].ToString() != String.Empty))
+                                    {
+                                        this._Status = message.ContentArgumentsIn["Status"].ToString();
+                                    }
+                                    else
+                                    {
+                                        ce = (ce + 1);
+                                    }
+                                }
+                                else
+                                {
+                                    this._Status = "";
+                                }
                                 if ((ce > 0))
                                 {
                                     IsCheck = false;
@@ -25746,6 +25763,10 @@ namespace ItemStoreDBNameSpace
                                 ce = ce+1;
                             }
                             if ((this._Total < 0))
+                            {
+                                ce = ce+1;
+                            }
+                            if ((Validation.Validate("Letter", this._Status) == false))
                             {
                                 ce = ce+1;
                             }
@@ -25794,6 +25815,9 @@ namespace ItemStoreDBNameSpace
                                 System.Data.SqlClient.SqlParameter Totalprm = cmd.Parameters.Add("Total", SqlDbType.Float);
                                 Totalprm.Direction = ParameterDirection.Input;
                                 Totalprm.Value = this._Total;
+                                System.Data.SqlClient.SqlParameter Statusprm = cmd.Parameters.Add("Status", SqlDbType.Char, 30);
+                                Statusprm.Direction = ParameterDirection.Input;
+                                Statusprm.Value = this._Status;
                                 rc = cmd.ExecuteNonQuery();
                             }
                             catch (System.Exception ex)
@@ -25843,6 +25867,8 @@ namespace ItemStoreDBNameSpace
                         private int _OrderInId;
                         
                         private double _Total;
+                        
+                        private string _Status;
                         
                         private bool UpdateOrderIn_ItemBeliefFun(ACLMessage message)
                         {
@@ -25940,6 +25966,21 @@ namespace ItemStoreDBNameSpace
                                 {
                                     this._Total = 0;
                                 }
+                                if ((message.ContentArgumentsIn["Status"] != null))
+                                {
+                                    if ((message.ContentArgumentsIn["Status"].ToString() != String.Empty))
+                                    {
+                                        this._Status = message.ContentArgumentsIn["Status"].ToString();
+                                    }
+                                    else
+                                    {
+                                        ce = (ce + 1);
+                                    }
+                                }
+                                else
+                                {
+                                    this._Status = "";
+                                }
                                 if ((ce > 0))
                                 {
                                     IsCheck = false;
@@ -25981,6 +26022,10 @@ namespace ItemStoreDBNameSpace
                                 ce = ce+1;
                             }
                             if ((this._Total < 0))
+                            {
+                                ce = ce+1;
+                            }
+                            if ((Validation.Validate("Letter", this._Status) == false))
                             {
                                 ce = ce+1;
                             }
@@ -26029,6 +26074,9 @@ namespace ItemStoreDBNameSpace
                                 System.Data.SqlClient.SqlParameter Totalprm = cmd.Parameters.Add("Total", SqlDbType.Float);
                                 Totalprm.Direction = ParameterDirection.Input;
                                 Totalprm.Value = this._Total;
+                                System.Data.SqlClient.SqlParameter Statusprm = cmd.Parameters.Add("Status", SqlDbType.Char, 30);
+                                Statusprm.Direction = ParameterDirection.Input;
+                                Statusprm.Value = this._Status;
                                 rc = cmd.ExecuteNonQuery();
                             }
                             catch (System.Exception ex)
@@ -30838,6 +30886,8 @@ namespace ItemStoreDBNameSpace
         
         public int _SelectBookByOfferIdCount;
         
+        public int _SelectBookByAmountCount;
+        
         public int _SearchBookByISBNCount;
         
         public int _SearchBookByTitleCount;
@@ -31508,6 +31558,32 @@ namespace ItemStoreDBNameSpace
                         if ((OutMessage.ContentArgumentsOut.ContainsKey("SelectBookByOfferIdCount") == true))
                         {
                             _SelectBookByOfferIdCount = int.Parse(OutMessage.ContentArgumentsOut["SelectBookByOfferIdCount"].ToString());
+                        }
+                    }
+                }
+                AgentLog.WriteToFile(OutMessage, "R");
+                return;
+            }
+            if ((Content == "SelectBookByAmountCapability"))
+            {
+                message.Sender = "AdminAgent";
+                message.Content = Content;
+                message.Receiver = "CatalogueAgent";
+                message.Act = ACLMessage.Performative.RequestWhen;
+                message.ContentArgumentsIn.Add("Amount", _Amount);
+                message.ContentArgumentsIn.Add("Top", _Top);
+                message.ContentArgumentsIn.Add("PageSize", _PageSize);
+                message.ContentArgumentsIn.Add("Flag", _Flag);
+                AgentLog.WriteToFile(message, "S");
+                OutMessage = _EShopAgent.ReceiveMessage(message);
+                if ((OutMessage.Act == ACLMessage.Performative.Inform))
+                {
+                    if ((OutMessage.ContentArgumentsOut.Count > 0))
+                    {
+                        Success = OutMessage.ContentArgumentsOut["Success"];
+                        if ((OutMessage.ContentArgumentsOut.ContainsKey("SelectBookByAmountCount") == true))
+                        {
+                            _SelectBookByAmountCount = int.Parse(OutMessage.ContentArgumentsOut["SelectBookByAmountCount"].ToString());
                         }
                     }
                 }
@@ -33537,6 +33613,7 @@ namespace ItemStoreDBNameSpace
                 message.ContentArgumentsIn.Add("Quantity", _Quantity);
                 message.ContentArgumentsIn.Add("OrderInId", _OrderInId);
                 message.ContentArgumentsIn.Add("Total", _Total);
+                message.ContentArgumentsIn.Add("Status", _Status);
                 AgentLog.WriteToFile(message, "S");
                 OutMessage = _EShopAgent.ReceiveMessage(message);
                 if ((OutMessage.Act == ACLMessage.Performative.Inform))
@@ -33561,6 +33638,7 @@ namespace ItemStoreDBNameSpace
                 message.ContentArgumentsIn.Add("Quantity", _Quantity);
                 message.ContentArgumentsIn.Add("OrderInId", _OrderInId);
                 message.ContentArgumentsIn.Add("Total", _Total);
+                message.ContentArgumentsIn.Add("Status", _Status);
                 AgentLog.WriteToFile(message, "S");
                 OutMessage = _EShopAgent.ReceiveMessage(message);
                 if ((OutMessage.Act == ACLMessage.Performative.Inform))

@@ -50,6 +50,13 @@
                     <asp:Button runat="server" ID="lastBottombtn" Text="Last" OnClick="lastBottombtn_Click" /></td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <asp:Button runat="server" ID="CreateOrderbtn" Text="Create Order" OnClick="CreateOrderbtn_Click" />
+                </td>
+            </tr>
+        </tfoot>
     </table>
 </asp:Content>
 

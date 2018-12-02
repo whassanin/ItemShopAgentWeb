@@ -53,12 +53,20 @@
             </tr>
         </tbody>
     </table>
-    <asp:GridView runat="server" ID="OrderDetailGV" AutoGenerateColumns="False" Width="1000px" OnRowCommand="OrderDetailGV_RowCommand" OnRowDataBound="OrderDetailGV_RowDataBound">
+    <asp:GridView runat="server" ID="OrderDetailGV" AutoGenerateColumns="False" Width="600px" OnRowCommand="OrderDetailGV_RowCommand" OnRowDataBound="OrderDetailGV_RowDataBound">
         <Columns>
-            <asp:BoundField HeaderText="Id" DataField="Id" HeaderStyle-Width="50px" />
-            <asp:BoundField HeaderText="BookId" DataField="BookId" Visible="false" HeaderStyle-Width="50px" />
-            <asp:BoundField HeaderText="Title" DataField="Title" HeaderStyle-Width="500px" />
-            <asp:BoundField HeaderText="Price" DataField="Price" HeaderStyle-Width="50px" DataFormatString="{0:0.00}" />
+            <asp:BoundField HeaderText="Id" DataField="Id" HeaderStyle-Width="50px">
+                <HeaderStyle Width="50px"></HeaderStyle>
+            </asp:BoundField>
+            <asp:BoundField HeaderText="BookId" DataField="BookId" Visible="false" HeaderStyle-Width="50px">
+                <HeaderStyle Width="50px"></HeaderStyle>
+            </asp:BoundField>
+            <asp:BoundField HeaderText="Title" DataField="Title" HeaderStyle-Width="250px">
+                <HeaderStyle Width="250px"></HeaderStyle>
+            </asp:BoundField>
+            <asp:BoundField HeaderText="Price" DataField="Price" HeaderStyle-Width="50px" DataFormatString="{0:0.00}">
+                <HeaderStyle Width="50px"></HeaderStyle>
+            </asp:BoundField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
                     <asp:Label runat="server" ID="Quantitylbl" Text='<%#Eval("Quantity") %>' Visible="false"></asp:Label>
@@ -66,7 +74,11 @@
                     </asp:DropDownList>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField HeaderText="Total" DataField="Total" HeaderStyle-Width="100px" DataFormatString="{0:0.00}" />
+            <asp:BoundField HeaderText="Total" DataField="Total" HeaderStyle-Width="100px" DataFormatString="{0:0.00}">
+                <HeaderStyle Width="100px"></HeaderStyle>
+            </asp:BoundField>
+            <asp:ButtonField Text="Delete" CommandName="Delete" />
+            <asp:ButtonField Text="Update" CommandName="Update" />
         </Columns>
     </asp:GridView>
     <br />

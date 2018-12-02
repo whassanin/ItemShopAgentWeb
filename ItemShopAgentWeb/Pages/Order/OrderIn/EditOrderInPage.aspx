@@ -4,6 +4,11 @@
       <table>
         <tbody>
             <tr>
+                <td colspan="7">
+                    <asp:Button runat="server" ID="CreateOrderbtn" Text="Create Order" OnClick="CreateOrderbtn_Click"/>
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <asp:Button runat="server" ID="firstTopbtn" Text="First" OnClick="firstTopbtn_Click" /></td>
                 <td>
